@@ -31,7 +31,9 @@ public class SavingsAccount extends BankAccount{
       System.out.println(getOwner() + ", you don't have enough money to withdraw!");
       System.out.println("Balance: " + df.format(super.getBalance()));
     }else {
-      System.out.println("Balance: " + df.format(balance));
+      System.out.println("--------------------------------");
+      System.out.println("Owner: " + getOwner());
+      System.out.println("Balance: " + df.format(this.balance));
     }
   }
 
@@ -39,12 +41,8 @@ public class SavingsAccount extends BankAccount{
     return annualInterestRate;
   }
 
-  
-
-
   public void depositMonthlyInterest() {
-    this.balance = ((super.getBalance()* (annualInterestRate /12)) + super.getBalance());
-    
+    this.balance = ((getBalance() * (annualInterestRate /12)) + getBalance());
     System.out.println("--------------------------------");
     System.out.println(getOwner() + " account balance with monthly interest applied: " + df.format(balance));
   }

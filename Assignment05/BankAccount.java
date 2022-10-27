@@ -43,23 +43,11 @@ public class BankAccount {
     this.balance = balance;
   }
 
-
   public void depositMonthlyInterest() {
   }
 
   public void processCheck(double checkAmount){
     System.out.println(owner);
   }
-  // public void depositMonthlyInterest() {
-  //   this.balance = (this.balance + 50);
-
-  // }
-
-    public void transfer(){
-      System.out.println("--------------------------------");
-      System.out.println("Owner: " + getOwner());
-    }
-  // public void depositMonthlyInterest(){
-  //   //balance = balance + 2;
-  // }
+  
 }
