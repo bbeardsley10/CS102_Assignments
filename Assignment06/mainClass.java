@@ -1,4 +1,4 @@
-package Assignment06;
+//package Assignment06;
 //testing
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,10 +10,6 @@ import java.util.Set;
 
 public class mainClass {
 
-  static void wordCounter(){
-    
-    
-  }
   public static void main(String[] args) throws Exception{
 
     File file = new File("happy.txt");
@@ -24,19 +20,19 @@ public class mainClass {
     String textLine = br.readLine();
 
 
-
-  int totalWords = 0;
   while(textLine != null){
 
     if(!textLine.trim().equals("")) {
       String [] words = textLine.split(" ");
 
-      //totalWords += words.length;
       for(String word : words){
         if(word == null || word.trim().equals("")){
           continue;
         }
-        String processed = word.toLowerCase();
+        String processed = word.toLowerCase()
+                .replace(",", "")
+                .replace("(", "")
+                .replace(")", "");
 
         if(numOfOccurrences.containsKey(processed)){
           numOfOccurrences.put(processed, numOfOccurrences.get(processed) + 1);
@@ -53,28 +49,15 @@ public class mainClass {
     }
     textLine = br.readLine();
   }
+ 
 
-  int counter = 0;
-  String theWord = "happy";
-
-  for(String word1 : numOfOccurrences.keySet()){
-    Integer value = numOfOccurrences.get(word1);
-    if(value > counter){
-      counter = value;
-      theWord = word1;
-    }
-  }
-
-
- // System.out.println(textLine);
-  System.out.println(numOfOccurrences);
-  System.out.println();
-  System.out.println(uniqueWords);
-  System.out.println();
   System.out.println("Total Amount of Unique Words: " + uniqueWords.size());
   System.out.println();
-  System.out.println("Total Amount of Words: " + totalWords);
-  System.out.println();
-  System.out.println("The most frequently used word: " + theWord + " " + counter);
+
+  if(numOfOccurrences.containsKey("happy")){
+
+    int value = numOfOccurrences.get("happy");
+    System.out.println("Happy appears " + value + " times.");
+  }
   }
 }
