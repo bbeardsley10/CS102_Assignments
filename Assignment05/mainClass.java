@@ -2,7 +2,6 @@ package Assignment05;
 
 public class mainClass {
     
-    
     public static void main(String[] args) {
         
     BankAccount account1 = new SavingsAccount("Emily", 200, 1);
@@ -13,11 +12,15 @@ public class mainClass {
 
     account2.withdraw(25);
     account2.processCheck(50);
+
+    account1.withdraw(100);
+    account2.deposit(100);
     
     account1.depositMonthlyInterest();
     account3.depositMonthlyInterest();
 
     account1.withdraw(500);
     account2.withdraw(500);
+
     }
 }

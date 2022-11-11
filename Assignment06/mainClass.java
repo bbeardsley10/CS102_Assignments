@@ -1,4 +1,4 @@
-package Assignment06;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -28,15 +28,15 @@ public class mainClass {
         if(word == null || word.trim().equals("")){
           continue;
         }
-        String processed = word.toLowerCase()
+        String check = word.toLowerCase()
                 .replace(",", "")
                 .replace("(", "")
                 .replace(")", "");
 
-        if(numOfOccurrences.containsKey(processed)){
-          numOfOccurrences.put(processed, numOfOccurrences.get(processed) + 1);
+        if(numOfOccurrences.containsKey(check)){
+          numOfOccurrences.put(check, numOfOccurrences.get(check) + 1);
         } else {
-          numOfOccurrences.put(processed, 1);
+          numOfOccurrences.put(check, 1);
         }
         String cleanUpWord = word.toLowerCase()
                   .replace(",", "")
@@ -49,7 +49,6 @@ public class mainClass {
     textLine = br.readLine();
   }
  
-
   System.out.println("Total Amount of Unique Words: " + uniqueWords.size());
   System.out.println();
 
@@ -58,5 +57,6 @@ public class mainClass {
     int value = numOfOccurrences.get("happy");
     System.out.println("Happy appears " + value + " times.");
   }
+    br.close();
   }
 }
